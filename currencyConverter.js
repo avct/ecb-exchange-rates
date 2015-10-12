@@ -42,12 +42,14 @@ module.exports = {
 
     createCurrenciesMap: function(currencies) {
       var self = this;
+      var currenciesMap = [];
       _.each(currencies, function(item) {
          var currency = eval('item.$').currency;
          var rate = eval('item.$').rate;
-         self.currenciesMap.push({ currency: currency, rate: rate });
+         currenciesMap.push({ currency: currency, rate: rate });
       });
-      self.currenciesMap.push({ currency: 'EUR', rate: 1 });
+      currenciesMap.push({ currency: 'EUR', rate: 1 });
+      self.currenciesMap = currenciesMap;
       self.executeCallback();
     },
 
